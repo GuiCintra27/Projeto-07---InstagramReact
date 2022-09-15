@@ -317,6 +317,13 @@ main{
     display: none !important;
 }
 
+/* IMAGEM DO POST */
+
+.Post-img img{
+    max-width: 612px;
+    max-height: 612px;
+}
+
 /* INTERAÇÕES COM O POST */
 
 .Post-interactions{

@@ -63,7 +63,8 @@ body{
 .Post-informations .Likes p strong:last-child, 
 .Comments p:first-child:hover,
 .Write-comment ion-icon:hover,
-#Ig-informations > #Information-links > p{
+#Ig-informations > #Information-links > p,
+.Like{
     cursor: pointer;
 }
 
@@ -351,9 +352,39 @@ main{
 
 /* BOTÃO DE PUBLICAÇÃO CURTIDA */
 
+.Like{
+    --size: 24px;
+    position: relative;
+    width: var(--size);
+    height: calc(var(--size) * 0.3);
+}
+
+.Like:before,
+.Like:after {
+    position: absolute;
+    content: "";
+    left: calc(var(--size) * 0.55);
+    top: 0;
+    width: calc(var(--size) * 0.55);
+    height: calc(var(--size) * 0.85);
+    background: var(--black);   
+    border-radius: calc(var(--size) * 0.55) calc(var(--size) * 0.55) 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.Like:before{
+    z-index: 1;
+}
+
+.Like:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
 .Liked{
     --size: 24px;
-
     position: relative;
     width: var(--size);
     height: calc(var(--size) * 0.3);
@@ -367,16 +398,38 @@ main{
     top: 0;
     width: calc(var(--size) * 0.55);
     height: calc(var(--size) * 0.85);
-    background: #ed4956;
+    background: red;   
     border-radius: calc(var(--size) * 0.55) calc(var(--size) * 0.55) 0 0;
     transform: rotate(-45deg);
     transform-origin: 0 100%;
+}
+
+.Liked:before{
+    z-index: 1;
 }
 
 .Liked:after {
     left: 0;
     transform: rotate(45deg);
     transform-origin: 100% 100%;
+}
+
+@keyframes size {
+    0% {
+        font-size: 170%;
+    }
+
+    30% {
+        font-size: 210%;
+    }
+
+    68% {
+        font-size: 190%;
+    }
+
+    100% {
+        font-size: 170%;
+    }
 }
 
 /* ROTAÇÃO DO BOTÃO DE COMENTAR NA FOTO */

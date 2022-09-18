@@ -1,3 +1,5 @@
+import React from "react";
+
 function Comment(props) {
     if (props.comment1 === '' || props.comment1 === null) {
         return (
@@ -54,6 +56,10 @@ function Comment(props) {
 }
 
 export default function Posts() {
+    const [likeInteraction, setLikeInteraction] = React.useState('heart-outline');
+    const [heartColor, setHeartColor] = React.useState({ color: 'black' });
+    const [saveInteraction, setSaveInteraction] = React.useState('bookmark-outline')
+
     const data = [{
         userImg: "images/Users-img/meowed.svg",
         userName: "meowed",
@@ -94,7 +100,25 @@ export default function Posts() {
         comment2: "",
         time: "1 dia"
     }];
-    
+
+    function like() {
+        if (likeInteraction === 'heart-outline') {
+            setLikeInteraction('heart');
+            setHeartColor({ color: 'red' });
+        } else {
+            setLikeInteraction('heart-outline');
+            setHeartColor({ color: 'black' });
+        }
+    }
+
+    function save() {
+        if (saveInteraction === 'bookmark-outline') {
+            setSaveInteraction('bookmark');
+        } else {
+            setSaveInteraction('bookmark-outline');
+        }
+    }
+
     return (
         <div>
             {data.map((item) =>
@@ -114,23 +138,19 @@ export default function Posts() {
                         </div>
                     </div>
 
-                    <div class="Post-img">
+                    <div class="Post-img" onClick={like}>
                         <img src={item.postImg} alt="Imagem de post" />
                     </div>
 
                     <div class="Post-interactions">
                         <div>
                             <div class="Like-interaction">
-                                <ion-icon id="L1" name="heart-outline"
-                                    onClick="Like(document.getElementById('L1'), document.getElementById('HL1'))">
-                                </ion-icon>
-                                <div id="HL1" class="Liked Off"
-                                    onClick="Like(document.getElementById('L1'), document.getElementById('HL1'))"></div>
+                                <ion-icon name={likeInteraction} onClick={like} style={heartColor}></ion-icon>
                             </div>
                             <ion-icon class="Chat-icon" name="chatbubble-outline"></ion-icon>
                             <ion-icon name="paper-plane-outline"></ion-icon>
                         </div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
+                        <ion-icon onClick={save} name={saveInteraction}></ion-icon>
                     </div>
 
                     <div class="Post-informations">

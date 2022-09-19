@@ -56,9 +56,18 @@ function Comment(props) {
 }
 
 export default function Posts() {
-    const [likeInteraction, setLikeInteraction] = React.useState('heart-outline');
-    const [heartColor, setHeartColor] = React.useState({ color: 'black' });
-    const [saveInteraction, setSaveInteraction] = React.useState('bookmark-outline')
+    const [likeOne, setLikeOne] = React.useState('heart-outline');
+    const [likeTwo, setLikeTwo] = React.useState('heart-outline');
+    const [likeThree, setLikeThree] = React.useState('heart-outline');
+    const [heartColorOne, setHeartColorOne] = React.useState({ color: 'black' });
+    const [heartColorTwo, setHeartColorTwo] = React.useState({ color: 'black' });
+    const [heartColorThree, setHeartColorThree] = React.useState({ color: 'black' });
+    const [bookmarkOne, setBookmarkOne] = React.useState('bookmark-outline');
+    const [bookmarkTwo, setBookmarkTwo] = React.useState('bookmark-outline');
+    const [bookmarkThree, setBookmarkThree] = React.useState('bookmark-outline');
+    const [likesOne, setLikesOne] = React.useState((Math.random() * 1000).toFixed());
+    const [likesTwo, setLikesTwo] = React.useState((Math.random() * 1000).toFixed());
+    const [likesThree, setLikesThree] = React.useState((Math.random() * 1000).toFixed());
 
     const data = [{
         userImg: "images/Users-img/meowed.svg",
@@ -66,56 +75,116 @@ export default function Posts() {
         postImg: "images/Posts/gato-telefone.svg",
         userLikedImg: "images/Users-img/User-photo.jpg",
         userLiked: "Guicintra27",
+        likes: likesOne,
         postCaption: "vendo um miauflix",
         comments: "12",
         userComment1: "Guicintra27",
         comment1: "melhor forma 😋",
         userComment2: "Hgata",
         comment2: "só faltou htinha junto 👀",
-        time: "6 horas"
+        time: "6 horas",
+        like: likeOne,
+        likeFunction: likeInteractionOne,
+        heart: heartColorOne,
+        save: bookmarkOne,
+        saveFunction: saveBookmarkOne
     }, {
         userImg: "images/Users-img/barked.svg",
         userName: "barked",
         postImg: "images/Posts/dog.svg",
         userLikedImg: "images/Users-img/meowed.svg",
         userLiked: "meowed",
+        likes: likesTwo,
         postCaption: "soninho da beleza",
         comments: "10",
         userComment1: "meowed",
         comment1: "vou tirar um soninho desse pra ficar bonito assim 😝",
         userComment2: "",
         comment2: "",
-        time: "13 horas"
+        time: "13 horas",
+        like: likeTwo,
+        likeFunction: likeInteractionTwo,
+        heart: heartColorTwo,
+        save: bookmarkTwo,
+        saveFunction: saveBookmarkTwo
     }, {
         userImg: "images/Users-img/User-photo.jpg",
         userName: "Guicintra27",
         postImg: "https://cdn1.mundodastribos.com/458820-Fotos-de-cachorros-fantasiados-11.jpg",
         userLikedImg: "images/Users-img/9gag 1.svg",
         userLiked: "9gag",
+        likes: likesThree,
         postCaption: "meu dogpresley",
         comments: "15",
         userComment1: "",
         comment1: "",
         userComment2: "",
         comment2: "",
-        time: "1 dia"
+        time: "1 dia",
+        like: likeThree,
+        likeFunction: likeInteractionThree,
+        heart: heartColorThree,
+        save: bookmarkThree,
+        saveFunction: saveBookmarkThree
     }];
 
-    function like() {
-        if (likeInteraction === 'heart-outline') {
-            setLikeInteraction('heart');
-            setHeartColor({ color: 'red' });
+    function likeInteractionOne() {
+        if (likeOne === 'heart-outline') {
+            setLikeOne('heart');
+            setHeartColorOne({ color: 'red' });
+            setLikesOne(Number(likesOne) + 1);
         } else {
-            setLikeInteraction('heart-outline');
-            setHeartColor({ color: 'black' });
+            setLikeOne('heart-outline');
+            setHeartColorOne({ color: 'black' });
+            setLikesOne(Number(likesOne) - 1);
         }
     }
 
-    function save() {
-        if (saveInteraction === 'bookmark-outline') {
-            setSaveInteraction('bookmark');
+    function likeInteractionTwo() {
+        if (likeTwo === 'heart-outline') {
+            setLikeTwo('heart');
+            setHeartColorTwo({ color: 'red' });
+            setLikesTwo(Number(likesTwo) + 1);
         } else {
-            setSaveInteraction('bookmark-outline');
+            setLikeTwo('heart-outline');
+            setHeartColorTwo({ color: 'black' });
+            setLikesTwo(Number(likesTwo) - 1);
+        }
+    }
+
+    function likeInteractionThree() {
+        if (likeThree === 'heart-outline') {
+            setLikeThree('heart');
+            setHeartColorThree({ color: 'red' });
+            setLikesThree(Number(likesThree) + 1);
+        } else {
+            setLikeThree('heart-outline');
+            setHeartColorThree({ color: 'black' });
+            setLikesThree(Number(likesThree) - 1);
+        }
+    }
+
+    function saveBookmarkOne() {
+        if (bookmarkOne === 'bookmark-outline') {
+            setBookmarkOne('bookmark');
+        } else {
+            setBookmarkOne('bookmark-outline');
+        }
+    }
+
+    function saveBookmarkTwo() {
+        if (bookmarkTwo === 'bookmark-outline') {
+            setBookmarkTwo('bookmark');
+        } else {
+            setBookmarkTwo('bookmark-outline');
+        }
+    }
+
+    function saveBookmarkThree() {
+        if (bookmarkThree === 'bookmark-outline') {
+            setBookmarkThree('bookmark');
+        } else {
+            setBookmarkThree('bookmark-outline');
         }
     }
 
@@ -138,26 +207,25 @@ export default function Posts() {
                         </div>
                     </div>
 
-                    <div class="Post-img" onClick={like}>
+                    <div class="Post-img" onClick={item.likeFunction}>
                         <img src={item.postImg} alt="Imagem de post" />
                     </div>
 
                     <div class="Post-interactions">
                         <div>
                             <div class="Like-interaction">
-                                <ion-icon name={likeInteraction} onClick={like} style={heartColor}></ion-icon>
+                                <ion-icon name={item.like} onClick={item.likeFunction} style={item.heart}></ion-icon>
                             </div>
                             <ion-icon class="Chat-icon" name="chatbubble-outline"></ion-icon>
                             <ion-icon name="paper-plane-outline"></ion-icon>
                         </div>
-                        <ion-icon onClick={save} name={saveInteraction}></ion-icon>
+                        <ion-icon onClick={item.saveFunction} name={item.save}></ion-icon>
                     </div>
 
                     <div class="Post-informations">
                         <div class="Likes">
                             <img src={item.userLikedImg} alt="Curtiu a publicação" />
-                            <p> Curtido por <strong class="Liked-by">{item.userLiked}</strong> e <strong>outras
-                                pessoas</strong></p>
+                            <p> Curtido por <strong class="Liked-by">{item.userLiked}</strong> e <strong>outras {item.likes} pessoas</strong></p>
                         </div>
 
                         <div class="Post-caption">

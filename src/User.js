@@ -1,10 +1,10 @@
 import React from "react";
 
 
-export default function User(){
-    const [userImage, setUserImage] = React.useState('');
-    const [userName, setUserName] = React.useState('');
-    const [userId, setUserId] = React.useState('');
+export default function User(props){
+    const [userImage, setUserImage] = React.useState(props.UserImg);
+    const [userName, setUserName] = React.useState(props.UserNick);
+    const [userId, setUserId] = React.useState(props.UserName);
     let logged = 0;
 
     function switchPefilData(){

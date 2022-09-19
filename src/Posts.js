@@ -14,11 +14,9 @@ function Comment(props) {
                 <div>
                     <p><strong>{props.userComment1}</strong> {props.comment1}</p>
                     <div class="Like-interaction">
-                        <ion-icon id="CL1-1" name="heart-outline"
-                            onClick="Like(document.getElementById('CL1-1'), document.getElementById('HCL1-1'))">
+                        <ion-icon name="heart-outline">
                         </ion-icon>
-                        <div id="HCL1-1" class="Likedc Comment Off"
-                            onClick="Like(document.getElementById('CL1-1'), document.getElementById('HCL1-1'))">
+                        <div class="Likedc Comment Off">
                         </div>
                     </div>
                 </div>
@@ -31,22 +29,18 @@ function Comment(props) {
                 <div>
                     <p><strong>{props.userComment1}</strong> {props.comment1}</p>
                     <div class="Like-interaction">
-                        <ion-icon id="CL1-1" name="heart-outline"
-                            onClick="Like(document.getElementById('CL1-1'), document.getElementById('HCL1-1'))">
+                        <ion-icon name="heart-outline">
                         </ion-icon>
-                        <div id="HCL1-1" class="Likedc Comment Off"
-                            onClick="Like(document.getElementById('CL1-1'), document.getElementById('HCL1-1'))">
+                        <div class="Likedc Comment Off">
                         </div>
                     </div>
                 </div>
                 <div>
                     <p><strong>{props.userComment2}</strong> {props.comment2}</p>
                     <div class="Like-interaction">
-                        <ion-icon id="CL1-2" name="heart-outline"
-                            onClick="Like(document.getElementById('CL1-2'), document.getElementById('HCL1-2'))">
+                        <ion-icon name="heart-outline">
                         </ion-icon>
-                        <div id="HCL1-2" class="Likedc Comment Off"
-                            onClick="Like(document.getElementById('CL1-2'), document.getElementById('HCL1-2'))">
+                        <div class="Likedc Comment Off">
                         </div>
                     </div>
                 </div>

@@ -1,11 +1,10 @@
 import Suggestions from "./Suggestions";
 import User from "./User";
-import React from "react";
 
 export default function Sidebar(){
     return (
         <aside>
-            <User/>
+            <User UserImg='../images/Users-img/User-photo.jpg' UserName='Guicintra27' UserNick='Guilherme Cintra'/>
             <Suggestions/>
 
             <div id="Ig-informations">

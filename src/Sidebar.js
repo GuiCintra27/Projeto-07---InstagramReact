@@ -1,7 +1,9 @@
 import Suggestions from "./Suggestions";
 import User from "./User";
+import React from "react";
 
 export default function Sidebar(){
+
     return (
         <aside>
             <User UserImg='../images/Users-img/User-photo.jpg' UserName='Guicintra27' UserNick='Guilherme Cintra'/>
@@ -17,7 +19,7 @@ export default function Sidebar(){
                     <a href="https://www.instagram.com/legal/privacy/">Privacidade</a>
                     <a href="https://www.instagram.com/legal/terms/">Termos</a>
                     <a href="https://www.instagram.com/explore/locations/">Localizações</a>
-                    <p>Idioma</p>
+                    <p>idioma</p>
                 </div>
 
                 <p>© 2022 INSTAGRAM FROM META</p>
